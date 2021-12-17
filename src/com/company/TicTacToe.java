@@ -32,8 +32,23 @@ public class TicTacToe implements ActionListener {
         title_panel.setLayout(new BorderLayout());
         title_panel.setBounds(0,0,800,100);
 
+        button_panel.setLayout(new GridLayout(3,3));
+        button_panel.setBackground(new Color(150,150,150));
+
+        for (int i = 0; i < 9; i++) {
+            buttons[i] = new JButton();
+            button_panel.add(buttons[i]);
+            buttons[i].setFont(new Font("MV Boli", Font.BOLD, 120));
+            buttons[i].setFocusable(false);
+            buttons[i].addActionListener(this);
+
+        }
+
         title_panel.add(textField);
-        frame.add(title_panel);
+        frame.add(title_panel, BorderLayout.NORTH);
+        frame.add(button_panel);
+
+        firstTurn();
     }
 
     @Override
@@ -42,7 +57,18 @@ public class TicTacToe implements ActionListener {
     }
 
     public void firstTurn() {
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(random.nextInt(2)==0) {
+            player1_turn = true;
+            textField.setText("X turn");
+        } else {
+            player1_turn = false;
+            textField.setText("O turn");
+        }
     }
 
     public void check() {
