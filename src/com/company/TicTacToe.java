@@ -12,9 +12,28 @@ public class TicTacToe implements ActionListener {
     JPanel title_panel = new JPanel();
     JPanel button_panel = new JPanel();
     JLabel textField = new JLabel();
+    JButton[] buttons = new JButton[9];
+    boolean player1_turn;
 
     TicTacToe() {
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 800);
+        frame.getContentPane().setBackground(new Color(50,50,50));
+        frame.setLayout(new BorderLayout());
+        frame.setVisible(true);
 
+        textField.setBackground(new Color(25,25,25));
+        textField.setForeground(new Color(25,255,0));
+        textField.setFont(new Font("Ink Free", Font.BOLD,75));
+        textField.setHorizontalAlignment(JLabel.CENTER);
+        textField.setText("Tic-Tac-Toe");
+        textField.setOpaque(true);
+
+        title_panel.setLayout(new BorderLayout());
+        title_panel.setBounds(0,0,800,100);
+
+        title_panel.add(textField);
+        frame.add(title_panel);
     }
 
     @Override
