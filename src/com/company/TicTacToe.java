@@ -95,7 +95,7 @@ public class TicTacToe implements ActionListener {
         //check for X
         if(     (buttons[0].getText()=="X") &&
                 (buttons[1].getText()=="X") &&
-                (buttons[1].getText()=="X") ) {
+                (buttons[2].getText()=="X") ) {
             xWins(0,1,2);
         }
         if(     (buttons[3].getText()=="X") &&
@@ -137,7 +137,7 @@ public class TicTacToe implements ActionListener {
         //check for 0
         if(     (buttons[0].getText()=="O") &&
                 (buttons[1].getText()=="O") &&
-                (buttons[1].getText()=="O") ) {
+                (buttons[2].getText()=="O") ) {
             oWins(0,1,2);
         }
         if(     (buttons[3].getText()=="O") &&
@@ -166,7 +166,7 @@ public class TicTacToe implements ActionListener {
             oWins(2,5,8);
         }
         if(     (buttons[0].getText()=="O") &&
-                (buttons[4].getText()=="O") &o
+                (buttons[4].getText()=="O") &&
                 (buttons[8].getText()=="O") ) {
             oWins(0,4,8);
         }
@@ -178,11 +178,25 @@ public class TicTacToe implements ActionListener {
     }
 
     public void xWins(int a, int b, int c) {
+        buttons[a].setBackground(Color.green);
+        buttons[b].setBackground(Color.green);
+        buttons[c].setBackground(Color.green);
 
+        for (int i = 0; i < 9; i++) {
+            buttons[i].setEnabled(false);
+        }
+        textField.setText("X wins");
     }
 
     public void oWins(int a, int b, int c) {
+        buttons[a].setBackground(Color.green);
+        buttons[b].setBackground(Color.green);
+        buttons[c].setBackground(Color.green);
 
+        for (int i = 0; i < 9; i++) {
+            buttons[i].setEnabled(false);
+        }
+        textField.setText("O wins");
     }
 }
 
